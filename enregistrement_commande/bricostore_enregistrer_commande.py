@@ -10,10 +10,10 @@ base de données commande_client.
 import sqlite3
 import datetime
 
-from Tools.affichage import\
+from outils.affichage import\
     affiche_clients, affiche_commandes, affiche_produits
     
-from Tools.contraintes import\
+from outils.contraintes import\
     existe_ncli, existe_npro, existe_ncom, stock_suffisant
 
 #------------------------------------------------------------------------------
