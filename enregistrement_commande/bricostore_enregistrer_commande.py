@@ -155,9 +155,21 @@ def mise_a_jour_nouvelle_commande(curseur, ncom, ncli, datecom, npros, qcoms):
         requete_produit = ...
         curseur.execute(requete_produit, [qcom, npro])
         
-        prix = calcule_prix(curseur, npro, qcom)
-        requete_client = ...
-        curseur.execute(requete_client, [prix, ncli])
+        # Solution 1 pour mettre à jour le compte
+        # prix = calcule_prix(curseur, npro, qcom)
+        # requete_client = ...
+        # curseur.execute(requete_client, [prix, ncli])
+    
+    # Solution 2 pour mettre à jour le compte
+    requete_prix = ...
+        
+    curseur.execute(requete_prix, [ncom])
+    
+    prix_total = curseur.fetchall()
+    prix_total = prix_total[0][0]
+    
+    requete_client = ...
+    curseur.execute(requete_client, [prix_total, ncli])
     
     
 def calcule_prix(curseur, npro, qcom):
@@ -188,4 +200,4 @@ def calcule_prix(curseur, npro, qcom):
 #------------------------------------------------------------------------------
 #                       Programme principal
 #------------------------------------------------------------------------------
-nouvelle_commande("../Data/DataBase/client_commande.sqlite")
+# nouvelle_commande("../Data/DataBase/client_commande.sqlite")
