@@ -97,30 +97,27 @@ def saisie_commande(curseur):
     npros, qcoms = [], []
     
     nv_pro = True
-    while ... :
+    while nv_pro:
         
-        if ... :
-            nv_pro = input('\nVoulez vous ajouter un produit à la commande (oui / non) : ')
-            nv_pro = nv_pro == 'oui'
+        npro = input("\nDonnez le numéro de produit : ")            
+        while ... or npro in npros:
+            msg_err = """Ce numéro de produit n'existe pas dans la table
+            produit ou a déjà été commandé lors de cette commande.
+            """
+            print(msg_err)
+            npro = input("\nDonnez le numéro de produit : ")
         
-        if ... :
+        qcom = int(input("\nDonnez la quantité commandée (un entier): "))
         
-            npro = input("\nDonnez le numéro de produit : ")            
-            while ... or npro in npros:
-                msg_err = """Ce numéro de produit n'existe pas dans la table
-                produit ou a déjà été commandé lors de cette commande.
-                """
-                print(msg_err)
-                npro = input("\nDonnez le numéro de produit : ")
-            
+        while ... :
+            print("La quantité commandée est supérieure au stock disponible.")
             qcom = int(input("\nDonnez la quantité commandée (un entier): "))
-            
-            while ... :
-                print("La quantité commandée est supérieure au stock disponible.")
-                qcom = int(input("\nDonnez la quantité commandée (un entier): "))
-            
-            npros.append(npro)
-            qcoms.append(qcom)
+        
+        npros.append(npro)
+        qcoms.append(qcom)
+        
+        nv_pro = input('\nVoulez vous ajouter un produit à la commande (oui / non) : ')
+        nv_pro = nv_pro == 'oui'
     
     return ncom, ncli, datecom, npros, qcoms
 
